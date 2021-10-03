@@ -78,7 +78,7 @@ export function getDailyPortfolioValues() {
 /*
 Pros:
 - able to handle any start and end date range
-- able to support any UTC + timezones
+- able to support any UTC time offset
 - additional check to prevent NaN output in situations where bitcoin transactions
   exist earlier than first available bitcoin price
 */
