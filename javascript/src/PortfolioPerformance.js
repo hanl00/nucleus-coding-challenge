@@ -17,8 +17,8 @@ const transactions = [
 
 export function getDailyPortfolioValues() {
     var currentDate = new Date(2021, 8, 1);
-    const timezoneOffset = -currentDate.getTimezoneOffset() * 60 * 1000;
     const dayAfterEndDate = new Date(2021, 8, 8);
+    const timezoneOffset = -currentDate.getTimezoneOffset() * 60 * 1000;
 
     currentDate.setTime(currentDate.getTime() + timezoneOffset);
     dayAfterEndDate.setTime(dayAfterEndDate.getTime() + timezoneOffset);
@@ -27,17 +27,17 @@ export function getDailyPortfolioValues() {
     const totalBitcoinAmount = {};
     var bitcoinCounter = 0;
 
-    prices.forEach((priceDates) => {
-        const dateString = priceDates.effectiveDate.toISOString().split("T")[0];
-        bitcoinValue[dateString] = priceDates.price;
+    prices.forEach((priceDate) => {
+        const dateString = priceDate.effectiveDate.toISOString().split("T")[0];
+        bitcoinValue[dateString] = priceDate.price;
     });
 
-    transactions.forEach((transactionDates) => {
-        const dateString = transactionDates.effectiveDate
+    transactions.forEach((transactionDate) => {
+        const dateString = transactionDate.effectiveDate
             .toISOString()
             .split("T")[0];
 
-        bitcoinCounter += transactionDates.value;
+        bitcoinCounter += transactionDate.value;
         totalBitcoinAmount[dateString] = bitcoinCounter;
     });
 
